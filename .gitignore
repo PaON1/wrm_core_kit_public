@@ -1,0 +1,3 @@
+config/core_kit.env
+__pycache__/
+*.pyc
