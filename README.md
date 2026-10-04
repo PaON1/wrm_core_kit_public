@@ -1,74 +1,93 @@
 # WRM Core Kit
 
-WRM Core Kit is a minimal open framework for building coherence aware distributed systems.
+> A small, inspectable research kit for experimenting with trust, coherence, and changing state in distributed systems.
 
-WRM stands for Waveform Resonance Mechanics. It explores how distributed nodes can emit structured trust pulses, compute system level coherence, and audit mesh state health in a transparent and inspectable way.
+WRM stands for **Waveform Resonance Mechanics**. The project explores a simple idea: a distributed system can carry useful information not only in isolated states, but also in how its states change, recover, and relate over time.
 
-This repository is intentionally small. It is not the full WRM system. It is the seed layer.
+This repository is intentionally small. It is **not** the full WRM research system. It is a public seed layer that other people can inspect, challenge, run, and extend.
 
-Directory structure
+## What is here
 
-scripts
-trust_pulse_emitter.py emits structured trust pulse events
-coherence_snapshot.py computes global coherence from recent pulse data
-wrm_system_audit.py audits node reachability and log presence
-core_kit_preflight.sh runs compile checks, emits pulses, builds snapshot, runs fast audit
+```text
+scripts/
+  trust_pulse_emitter.py   emit structured trust-pulse events
+  coherence_snapshot.py   summarize coherence from recent pulse history
+  wrm_system_audit.py     inspect node reachability and expected logs
+  core_kit_preflight.sh   run a repeatable local preflight
 
-docs
-WRM_LEXICON.md defines core vocabulary
-WRM_MATH_MICROPACK.md explains the coherence math primitives
-WRM_PHILOSOPHER_LENS.md explains the philosophical framing
-WRM_VOICE_POLICY.md defines tone and design intent
+config/
+  core_kit.env.example    optional local configuration
 
-Quick start
+WRM_LEXICON.md            vocabulary
+WRM_MATH_MICROPACK.md     compact math notes
+WRM_PHILOSOPHER_LENS.md   philosophical framing
+WRM_VOICE_POLICY.md       communication/design intent
+```
 
-Clone the repository.
+## Quick start
 
-git clone https://github.com/YOUR_USERNAME/wrm_core_kit_public.git
+```bash
+git clone https://github.com/PaON1/wrm_core_kit_public.git
 cd wrm_core_kit_public
-
-Make the preflight executable.
-
 chmod +x scripts/core_kit_preflight.sh
-
-Run the preflight.
-
 ./scripts/core_kit_preflight.sh
+```
 
-If everything is configured correctly you will see pulses emitted, a coherence snapshot generated, and a fast audit executed successfully.
+If the local environment is configured correctly, the preflight emits pulses, builds a coherence snapshot, and runs a fast audit.
 
-Configuration
+## Configuration
 
-Optional configuration lives in config/core_kit.env.
+Optional configuration lives in `config/core_kit.env`. Start from the example:
 
-An example file is provided at config/core_kit.env.example.
+```bash
+cp config/core_kit.env.example config/core_kit.env
+```
 
-If a local config file exists the preflight script will prefer it. Otherwise safe local defaults are used.
+If a local config file is not present, the kit uses safe local defaults where possible.
 
-What this demonstrates
+## What this demonstrates
 
-This kit demonstrates log based state modeling, tail based coherence computation, distributed node introspection, and deterministic observable AI plumbing.
+- structured event emission
+- log-based state modeling
+- recent-history / tail-based coherence calculations
+- distributed node introspection
+- deterministic, inspectable system plumbing
+- local-first experimentation without an opaque cloud dependency
 
-It is designed to be inspectable, hackable, and extendable. Nothing is hidden behind opaque services.
+## What this does **not** claim
 
-What this is not
+This is a research prototype, not a finished enterprise platform, safety controller, trading engine, or autonomous governance system. The public kit exists so the underlying abstractions can be examined on their own merits.
 
-This repository is not a SaaS product. It is not a finished enterprise platform. It is not a trading engine or governance system. It is the core abstraction layer that others can build upon.
+## Where it can go
 
-Extending the kit
+The same basic pattern can be explored with:
 
-You can replace the pulse schema, plug coherence into robotics, attach live sensor streams, wrap snapshot outputs into dashboards, deploy across small node clusters, or feed outputs into machine learning pipelines.
+- robotics
+- HVAC and thermal systems
+- cyber telemetry
+- grid or energy signals
+- traffic and flow systems
+- local AI agents
+- sensor networks
+- educational simulations
 
-The kit remains small so the ideas remain large.
+Replace the pulse schema, attach real sensor streams, change the coherence function, or feed the event history into a learning pipeline. The kit stays small so the experiment stays legible.
 
-Philosophy
+## Research posture
 
-Traditional systems react to interrupts. Resonant systems adapt across time.
+Traditional software often reacts to an event in isolation. WRM asks whether a system can become more useful by also reasoning about **trajectory, context, trust, recovery, and the interval before action**.
 
-WRM explores modeling intelligence as coherence over time rather than isolated decision events.
+The working principles are:
 
-This repository is an invitation to experiment with that idea.
+- listen before acting
+- preserve evidence
+- treat uncertainty as information
+- make recovery visible
+- keep human judgment available
+- prefer inspectable mechanisms over unexplained automation
 
-Contact
+## Related work
 
-orpheusnode@proton.me
+- [Playable Doodles](https://github.com/PaON1/playable-doodles) — a very different domain using the same interest in relationships, continuous variation, and human interaction
+- [Freezer Starter](https://github.com/PaON1/freezer-starter) — offline-first mesh presence and drift demo
+- [Raymond Bryant / project index](https://github.com/PaON1)
